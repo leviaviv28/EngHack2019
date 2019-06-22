@@ -1,6 +1,7 @@
 #include "SwitchPack.h"
 #include <EEPROM.h>
 
+#define btSerial Serial1
 #define hit_lim_addr 0
 #define day_offset 1
 #define sync_year_addr 2
@@ -15,48 +16,39 @@
 DoubleClick key(btnPin, PULLUP, REACTION_TIME);
 byte btnPresses = 0;
 
-void blinkLed(){
-    digitalWrite(ledPin, HIGH);
-    delay(50);
-    digitalWrite(ledPin, LOW);
+void blinkLed(int duration, int n){
+    for(int i = 0; i < n; i++){
+        digitalWrite(ledPin, HIGH);
+        long start = millis();
+        while(millis() - start < duration){}
+        digitalWrite(ledPin, LOW);
+    }
 }
 
 void syncData(){
-    char x;
-    Serial.print(EEPROM.read(sync_year_addr));
-    Serial1.print(EEPROM.read(sync_year_addr));
-    Serial1.print(",");
-    Serial.print(EEPROM.read(sync_month_addr));
-    Serial1.print(EEPROM.read(sync_month_addr));
-    Serial1.print(",");
-    Serial.println(EEPROM.read(sync_day_addr));
-    Serial1.print(EEPROM.read(sync_day_addr));
-    Serial1.print("/");
+    String date = "";
+    date += EEPROM.read(sync_year_addr);
+    date += ",";
+    date += EEPROM.read(sync_month_addr);
+    date += ",";
+    date += EEPROM.read(sync_day_addr);
+    date += "/";
     for(int i = EEPROM.read(hit_start_addr); i < EEPROM.read(hit_start_addr) + EEPROM.read(day_offset); i++){
-        Serial1.print(EEPROM.read(hit_start_addr + i));
-        Serial1.print(",");
+        date += EEPROM.read(hit_start_addr + i);
+        date += ",";
     }
-    x = (char)Serial1.read();
-    Serial.println(x);
-    EEPROM.write(hit_lim_addr, x);
-    x = Serial1.read();
-    Serial.println(x);
-    EEPROM.write(sync_year_addr, x);
-    x = Serial1.read();
-    Serial.println(x);
-    EEPROM.write(sync_month_addr, x);
-    x = Serial1.read();
-    Serial.println(x);
-    EEPROM.write(sync_day_addr, x);
-    Serial.println(EEPROM.read(hit_lim_addr));
-    Serial.println(EEPROM.read(sync_year_addr));
-    Serial.println(EEPROM.read(sync_month_addr));
-    Serial.println(EEPROM.read(sync_day_addr));
+    Serial.println(date);
+    btSerial.print(date);
+    date = "";
+    while(btSerial.available() > 0){
+        date += (char)btSerial.read();
+    }
+    Serial.println(date);
 }
 
 void setup(){
     Serial.begin(9600);
-    Serial1.begin(9600);
+    btSerial.begin(9600);
     key.begin();
     key.setMaxClicks(3);
     pinMode(ledPin, OUTPUT);
@@ -79,30 +71,28 @@ void loop(){
     
     if(btnPresses == 1){
         Serial.println(btnPresses);
-        if(1000 < EEPROM.read(hit_lim_addr)){
-            blinkLed();
-            //EEPROM.write(cur_hit_addr, EEPROM.read(cur_hit_addr) + 1);
+        if(EEPROM.read(hit_start_addr) + EEPROM.read(day_offset) < EEPROM.read(hit_lim_addr)){
+            blinkLed(1000, 1);
+            EEPROM.write(EEPROM.read(hit_start_addr) + EEPROM.read(day_offset), EEPROM.read(hit_start_addr) + EEPROM.read(day_offset));
             Serial.println("Hit allowed");
         } else {
             Serial.println("Hit not allowed");
         }
     } else if(btnPresses == 3){
-        Serial.println("Pairing Mode");
-        blinkLed();
-        delay(100);
-        blinkLed();
-        delay(100);
-        blinkLed();
-        while(!digitalRead(btStatePin)){
-            Serial.println("Waiting to connect");
-        }
-        char x = Serial1.read();
-        Serial.print("Got: ");
-        Serial.println(x);
-        if(x == 'S'){
-            Serial.println("Sending");
-            syncData();
-        }
-        Serial.println("Paired");
+        // Serial.println("Pairing Mode");
+        // blinkLed(3, 500);
+        // while(!digitalRead(btStatePin)){
+        //     Serial.println("Polling");
+        // }
+        // Serial.println("Paired");
+        // Serial.println("Sending");
+        // syncData();
     }
+
+    String data = "";
+    while(btSerial.available() > 0){
+        Serial.println(btSerial.read());
+    }
+
+
 }
