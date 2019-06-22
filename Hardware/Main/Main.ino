@@ -40,6 +40,7 @@ void syncData(){
     Serial.println(date);
     btSerial.print(date);
     date = "";
+    delay(1000);
     while(btSerial.available() > 0){
         date += (char)btSerial.read();
     }
@@ -79,20 +80,13 @@ void loop(){
             Serial.println("Hit not allowed");
         }
     } else if(btnPresses == 3){
-        // Serial.println("Pairing Mode");
-        // blinkLed(3, 500);
-        // while(!digitalRead(btStatePin)){
-        //     Serial.println("Polling");
-        // }
-        // Serial.println("Paired");
-        // Serial.println("Sending");
-        // syncData();
+         Serial.println("Pairing Mode");
+         blinkLed(3, 500);
+         while(!digitalRead(btStatePin)){
+             Serial.println("Polling");
+         }
+         Serial.println("Paired");
+         Serial.println("Sending");
+         syncData();
     }
-
-    String data = "";
-    while(btSerial.available() > 0){
-        Serial.println(btSerial.read());
-    }
-
-
 }
