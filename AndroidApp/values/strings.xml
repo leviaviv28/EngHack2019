@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">vapesafe</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="qa_title">Diagnostic Test</string>
+    <string name="q1">1. What is your height?</string>
+    <string name="q2">2. What is your weight?</string>
+    <string name="q3">3. How long have you been smoking for?</string>
+    <string name="q4">4. How often do you smoke per day?</string>
+    <string name="submit">Submit</string>
+
+    <string name="lbs">lbs</string>
+</resources>

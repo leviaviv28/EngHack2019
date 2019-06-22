@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   tools:context=".Questionnaire">
+    <TextView
+            android:text="@string/qa_title"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/qaTitle" tools:layout_editor_absoluteY="28dp"
+            tools:layout_editor_absoluteX="156dp"/>
+    <TextView
+            android:text="@string/q1"
+            android:textSize="16dp"
+            android:layout_width="254dp"
+            android:layout_height="24dp" android:id="@+id/qa_q1" tools:layout_editor_absoluteY="83dp"
+            tools:layout_editor_absoluteX="79dp"/>
+    <Spinner
+            android:layout_width="255dp"
+            android:layout_height="28dp" tools:layout_editor_absoluteY="127dp"
+            tools:layout_editor_absoluteX="79dp" android:id="@+id/spinner_q1"/>
+    <TextView
+            android:textSize="16dp"
+            android:text="@string/q2"
+            android:layout_width="253dp"
+            android:layout_height="26dp" android:id="@+id/qa_q2" tools:layout_editor_absoluteY="189dp"
+            tools:layout_editor_absoluteX="79dp"/>
+    <Spinner
+            android:layout_width="247dp"
+            android:layout_height="32dp" tools:layout_editor_absoluteY="236dp"
+            tools:layout_editor_absoluteX="79dp" android:id="@+id/spinner_q2"/>
+    <TextView
+            android:text="@string/q3"
+            android:layout_width="247dp"
+            android:layout_height="56dp" android:id="@+id/qa_q3" tools:layout_editor_absoluteY="309dp"
+            tools:layout_editor_absoluteX="80dp"/>
+    <Spinner
+            android:layout_width="248dp"
+            android:layout_height="33dp"
+            tools:layout_editor_absoluteX="79dp" android:id="@+id/spinner_q3"
+            tools:layout_editor_absoluteY="378dp"/>
+    <TextView
+            android:textSize="16dp"
+            android:text="@string/q4"
+            android:layout_width="252dp"
+            android:layout_height="39dp" android:id="@+id/spinner_q4" tools:layout_editor_absoluteY="419dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"/>
+    <Spinner
+            android:layout_width="251dp"
+            android:layout_height="27dp"
+            tools:layout_editor_absoluteX="78dp" android:id="@+id/spinner_q4" tools:layout_editor_absoluteY="472dp"/>
+    <Button
+            android:text="@string/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/button" tools:layout_editor_absoluteY="567dp"
+            tools:layout_editor_absoluteX="161dp" android:background="@drawable/round_button"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
