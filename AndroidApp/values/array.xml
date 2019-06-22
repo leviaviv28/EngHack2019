@@ -9,22 +9,22 @@
     </string-array>
     <string-array name="qa_q2_choices">
         <item>100 lbs or below</item>
-        <item>100-130 lbs</item>
+        <item>100 - 130 lbs</item>
         <item>131 - 160 lbs</item>
         <item>161 - 190 lbs</item>
         <item>190 lbs or more</item>
     </string-array>
     <string-array name="qa_q3_choices">
-        <item>6 months or less</item>
         <item>1 to 2 years</item>
         <item>2 to 5 years</item>
         <item>5 to 10 years</item>
         <item>10 years or more</item>
+        <item>15 years or more</item>
     </string-array>
     <string-array name="qa_q4_choices">
-        <item>Once a day</item>
-        <item>A few times a day</item>
-        <item>4 to 7 times a day</item>
-        <item>A pack or more a day</item>
+        <item>1 to 2 times a day</item>
+        <item>3 to 4 times a day</item>
+        <item>5 to 7 times a day</item>
+        <item>8 or more times a day</item>
     </string-array>
 </resources>

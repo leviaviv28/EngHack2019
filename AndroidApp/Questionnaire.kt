@@ -45,14 +45,15 @@ class Questionnaire : Fragment() {
             editor.putString("q3", spinnerq3.selectedItem.toString())
             editor.putString("q4", spinnerq4.selectedItem.toString())
 
-            editor.putInt("limit", calculateRecommendedLimit(spinnerq1.selectedItem.toString(),
+            editor.putString("recommended", calculateRecommendedLimit(spinnerq1.selectedItem.toString(),
                 spinnerq2.selectedItem.toString(), spinnerq3.selectedItem.toString(),
-                spinnerq4.selectedItem.toString()))
+                spinnerq4.selectedItem.toString()).toString() + " per day")
 
             editor.apply()
 
-            Log.d("MainActivity", "DATA SAVED")
-
+            getActivity()!!.getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, HomeFragment())
+                .commit()
         }
 
         return view

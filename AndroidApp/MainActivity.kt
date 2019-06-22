@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_home -> {
                 toolbar?.title = "Homepage"
                 getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container,Questionnaire())
+                    .replace(R.id.fragment_container, HomeFragment())
                     .commit()
             }
             R.id.nav_settings -> {

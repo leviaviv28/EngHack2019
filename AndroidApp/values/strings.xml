@@ -21,6 +21,10 @@
     <string name="q4">4. How often do you smoke per day?</string>
     <string name="submit">Submit</string>
 
-    <string name="lbs">lbs</string>
+    <string name="recalculate">Recalculate</string>
+
+    <string name="jenil">Jenil Vekaria</string>
+    <string name="levi">Levi Aviv</string>
+    <string name="jarrod">Jarrod Servilla</string>
 
 </resources>
