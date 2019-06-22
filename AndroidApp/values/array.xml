@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="qa_q1_choices">
-        <item>5" or below</item>
-        <item>5"1 - 5"4</item>
-        <item>5"5 - 5"8</item>
-        <item>5"9 - 6"0</item>
-        <item>6"1 or taller</item>
+        <item>5\" or below</item>
+        <item>5\"1 - 5\"4</item>
+        <item>5\"5 - 5\"8</item>
+        <item>5\"9 - 6\"0</item>
+        <item>6\"1 or taller</item>
     </string-array>
     <string-array name="qa_q2_choices">
         <item>100 lbs or below</item>
