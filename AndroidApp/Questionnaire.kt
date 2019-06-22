@@ -25,7 +25,7 @@ class Questionnaire : Fragment() {
         createSpinner(spinnerq2, R.array.qa_q2_choices, view)
         val spinnerq3: Spinner = view.spinner_q3
         createSpinner(spinnerq3, R.array.qa_q3_choices, view)
-        val spinnerq4: Spinner = view.spinner_q4 as Spinner
+        val spinnerq4: Spinner = view.spinner_q4
         createSpinner(spinnerq4, R.array.qa_q4_choices, view)
 
         return view
@@ -47,6 +47,6 @@ class Questionnaire : Fragment() {
     }
 
     //onButtonPress
-        //Calculate the recommended limit
-        //Send the limit to settings fragment
+    //Calculate the recommended limit
+    //Send the limit to settings fragment
 }

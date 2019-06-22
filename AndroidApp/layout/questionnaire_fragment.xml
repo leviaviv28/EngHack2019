@@ -10,51 +10,76 @@
             android:textStyle="bold"
             android:textSize="20dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/qaTitle" tools:layout_editor_absoluteY="28dp"
-            tools:layout_editor_absoluteX="156dp"/>
+            android:layout_height="wrap_content" android:id="@+id/qaTitle"
+            android:layout_marginTop="28dp" android:layout_marginBottom="27dp"
+            app:layout_constraintEnd_toEndOf="@+id/qa_q1" app:layout_constraintBottom_toTopOf="@+id/qa_q1"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="34dp"
+            android:layout_marginRight="34dp"/>
     <TextView
             android:text="@string/q1"
             android:textSize="16dp"
             android:layout_width="254dp"
-            android:layout_height="24dp" android:id="@+id/qa_q1" tools:layout_editor_absoluteY="83dp"
-            tools:layout_editor_absoluteX="79dp"/>
+            android:layout_height="0dp" android:id="@+id/qa_q1"
+            app:layout_constraintTop_toBottomOf="@+id/qaTitle"
+            android:layout_marginBottom="21dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/spinner_q1" app:layout_constraintStart_toStartOf="parent"/>
     <Spinner
             android:layout_width="255dp"
-            android:layout_height="28dp" tools:layout_editor_absoluteY="127dp"
-            tools:layout_editor_absoluteX="79dp" android:id="@+id/spinner_q1"/>
+            android:layout_height="0dp"
+            android:id="@+id/spinner_q1"
+            app:layout_constraintTop_toBottomOf="@+id/qa_q1" android:layout_marginBottom="34dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toTopOf="@+id/qa_q2"
+            app:layout_constraintStart_toStartOf="parent"/>
     <TextView
             android:textSize="16dp"
             android:text="@string/q2"
             android:layout_width="253dp"
-            android:layout_height="26dp" android:id="@+id/qa_q2" tools:layout_editor_absoluteY="189dp"
-            tools:layout_editor_absoluteX="79dp"/>
+            android:layout_height="0dp" android:id="@+id/qa_q2"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_q1"
+            android:layout_marginBottom="21dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/spinner_q2" app:layout_constraintStart_toStartOf="parent"/>
     <Spinner
             android:layout_width="247dp"
-            android:layout_height="32dp" tools:layout_editor_absoluteY="236dp"
-            tools:layout_editor_absoluteX="79dp" android:id="@+id/spinner_q2"/>
+            android:layout_height="0dp"
+            android:id="@+id/spinner_q2"
+            app:layout_constraintTop_toBottomOf="@+id/qa_q2" android:layout_marginBottom="41dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toTopOf="@+id/qa_q3"
+            app:layout_constraintStart_toStartOf="parent"/>
     <TextView
             android:text="@string/q3"
             android:layout_width="247dp"
-            android:layout_height="56dp" android:id="@+id/qa_q3" tools:layout_editor_absoluteY="309dp"
-            tools:layout_editor_absoluteX="80dp"/>
+            android:layout_height="0dp" android:id="@+id/qa_q3"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_q2"
+            android:layout_marginBottom="13dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/spinner_q3" app:layout_constraintStart_toStartOf="parent"/>
     <Spinner
-            android:layout_width="248dp"
-            android:layout_height="33dp"
-            tools:layout_editor_absoluteX="79dp" android:id="@+id/spinner_q3"
-            tools:layout_editor_absoluteY="378dp"/>
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:id="@+id/spinner_q3"
+            app:layout_constraintTop_toBottomOf="@+id/qa_q3"
+            android:layout_marginBottom="7dp" app:layout_constraintEnd_toEndOf="@+id/qa_q3"
+            app:layout_constraintBottom_toTopOf="@+id/qa_q4" app:layout_constraintStart_toStartOf="@+id/spinner_q2"/>
     <TextView
             android:textSize="16dp"
             android:text="@string/q4"
             android:layout_width="252dp"
-            android:layout_height="39dp" android:id="@+id/spinner_q4" tools:layout_editor_absoluteY="419dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"/>
+            android:layout_height="0dp" android:id="@+id/qa_q4"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_q3" android:layout_marginBottom="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/spinner_q4"/>
     <Spinner
-            android:layout_width="251dp"
-            android:layout_height="27dp"
-            tools:layout_editor_absoluteX="78dp" android:id="@+id/spinner_q4" tools:layout_editor_absoluteY="472dp"/>
+            android:layout_width="254dp"
+            android:layout_height="0dp"
+            android:id="@+id/spinner_q4"
+            app:layout_constraintTop_toBottomOf="@+id/qa_q4" android:layout_marginBottom="59dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintStart_toStartOf="parent"/>
     <Button
             android:text="@string/submit"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/button" tools:layout_editor_absoluteY="567dp"
-            tools:layout_editor_absoluteX="161dp" android:background="@drawable/round_button"/>
+            android:layout_height="wrap_content" android:id="@+id/button"
+            android:background="@drawable/round_buttons"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_q4" android:layout_marginBottom="44dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
