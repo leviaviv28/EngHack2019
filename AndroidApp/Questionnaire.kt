@@ -44,6 +44,11 @@ class Questionnaire : Fragment() {
             editor.putString("q2", spinnerq2.selectedItem.toString())
             editor.putString("q3", spinnerq3.selectedItem.toString())
             editor.putString("q4", spinnerq4.selectedItem.toString())
+
+            editor.putInt("limit", calculateRecommendedLimit(spinnerq1.selectedItem.toString(),
+                spinnerq2.selectedItem.toString(), spinnerq3.selectedItem.toString(),
+                spinnerq4.selectedItem.toString()))
+
             editor.apply()
 
             Log.d("MainActivity", "DATA SAVED")
@@ -53,7 +58,7 @@ class Questionnaire : Fragment() {
         return view
     }
 
-    fun createSpinner(sp: Spinner, resArray: Int, view: View): Unit {
+    private fun createSpinner(sp: Spinner, resArray: Int, view: View): Unit {
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter.createFromResource(
@@ -68,7 +73,24 @@ class Questionnaire : Fragment() {
         }
     }
 
-    //onButtonPress
-    //Calculate the recommended limit
-    //Send the limit to settings fragment
+    private fun calculateRecommendedLimit(s1: String, s2: String, s3: String, s4: String): Int {
+        val q1 = (s1[0].toInt() / 6)
+        val q2: Int
+
+        when ((s2.substring(0, 3).toInt() - 48) >= 131) {
+            true -> q2 = 2
+            false -> q2 = 0
+        }
+
+        val q3 = ((s3.substring(0, 2).trim().toInt() - 48) / 5)
+
+        val q4: Int
+
+        when (s4[0].toInt() == 56) {
+            true -> q4 = 10
+            false -> q4 = s4[5].toInt() - 48
+        }
+        return q4 - q1 - q2 - q3 - 2
+    }
+
 }
