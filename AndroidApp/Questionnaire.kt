@@ -18,6 +18,8 @@ class Questionnaire : Fragment() {
 
     companion object {
         const val FILENAME = "VapeSafe_Settings"
+        const val CHAR_OFFSET = 48
+        const val EIGHT_TO_INT = 56
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -78,18 +80,18 @@ class Questionnaire : Fragment() {
         val q1 = (s1[0].toInt() / 6)
         val q2: Int
 
-        when ((s2.substring(0, 3).toInt() - 48) >= 131) {
+        when ((s2.substring(0, 3).toInt() - CHAR_OFFSET) >= 131) {
             true -> q2 = 2
             false -> q2 = 0
         }
 
-        val q3 = ((s3.substring(0, 2).trim().toInt() - 48) / 5)
+        val q3 = ((s3.substring(0, 2).trim().toInt() - CHAR_OFFSET) / 5)
 
         val q4: Int
 
-        when (s4[0].toInt() == 56) {
+        when (s4[0].toInt() == EIGHT_TO_INT) {
             true -> q4 = 10
-            false -> q4 = s4[5].toInt() - 48
+            false -> q4 = s4[5].toInt() - CHAR_OFFSET
         }
         return q4 - q1 - q2 - q3 - 2
     }

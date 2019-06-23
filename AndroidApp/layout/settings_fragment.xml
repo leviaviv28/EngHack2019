@@ -25,7 +25,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/Recommended" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/submitData"/>
     <TextView
-            android:text="User Info"
+            android:text="@string/user_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/UserInfoTitle"
@@ -35,7 +35,7 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="16dp"/>
     <TextView
-            android:text="Limit"
+            android:text="@string/limit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/LimitTitle"
@@ -45,7 +45,7 @@
             app:layout_constraintStart_toStartOf="@+id/UserInfoTitle"
             app:layout_constraintEnd_toEndOf="@+id/UserInfoTitle"/>
     <TextView
-            android:text="Reset Data"
+            android:text="@string/reset_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/ResetDataTitle"
@@ -54,7 +54,7 @@
             app:layout_constraintStart_toStartOf="@+id/LimitTitle" app:layout_constraintEnd_toEndOf="@+id/LimitTitle"
             android:layout_marginTop="16dp"/>
     <TextView
-            android:text="Credits"
+            android:text="@string/credits"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/CreditsTitle"
@@ -63,7 +63,7 @@
             app:layout_constraintEnd_toEndOf="@+id/ResetDataTitle" app:layout_constraintTop_toBottomOf="@+id/divider3"
             android:layout_marginTop="32dp"/>
     <TextView
-            android:text="Weight:"
+            android:text="@string/weight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/WeightTitle"
@@ -72,7 +72,7 @@
             app:layout_constraintStart_toStartOf="@+id/HeightTitle"
             app:layout_constraintTop_toBottomOf="@+id/HeightTitle"/>
     <TextView
-            android:text="Been Smoking For:"
+            android:text="@string/been_smoking_for"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/BeenSmokingForTitle"
@@ -81,7 +81,7 @@
             app:layout_constraintStart_toStartOf="@+id/WeightTitle"
             app:layout_constraintTop_toBottomOf="@+id/WeightTitle"/>
     <TextView
-            android:text="Smokes Per Day:"
+            android:text="@string/smokes_per_day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/HowOftenPerDayTitle"
@@ -90,7 +90,7 @@
             app:layout_constraintStart_toStartOf="@+id/BeenSmokingForTitle"
             app:layout_constraintTop_toBottomOf="@+id/BeenSmokingForTitle"/>
     <TextView
-            android:text="Height:"
+            android:text="@string/height"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/HeightTitle"
@@ -164,7 +164,7 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp"/>
     <TextView
-            android:text="Per Day:"
+            android:text="@string/per_day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/PerDayTitle"
@@ -182,9 +182,9 @@
             app:layout_constraintStart_toEndOf="@+id/PerDayTitle"
             android:layout_marginStart="8dp"
             app:layout_constraintTop_toTopOf="@+id/PerDayTitle"
-            app:layout_constraintBottom_toBottomOf="@+id/PerDayTitle"/>
+            app:layout_constraintBottom_toBottomOf="@+id/PerDayTitle" android:autofillHints=""/>
     <Button
-            android:text="Reset"
+            android:text="@string/reset"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:id="@+id/ResetData"
@@ -221,7 +221,7 @@
             app:layout_constraintEnd_toEndOf="@+id/person2Credit" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/person2Credit"/>
     <TextView
-            android:text="Recommended: "
+            android:text="@string/recommended"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/RecommendedTitle"

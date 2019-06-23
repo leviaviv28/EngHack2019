@@ -26,5 +26,16 @@
     <string name="jenil">Jenil Vekaria</string>
     <string name="levi">Levi Aviv</string>
     <string name="jarrod">Jarrod Servilla</string>
+    <string name="user_info">User Info</string>
+    <string name="limit">Limit</string>
+    <string name="height">Height:</string>
+    <string name="smokes_per_day">Smokes Per Day:</string>
+    <string name="been_smoking_for">Been Smoking For:</string>
+    <string name="reset_data">Reset Data</string>
+    <string name="credits">Credits</string>
+    <string name="weight">Weight:</string>
+    <string name="per_day">Per Day:</string>
+    <string name="reset">Reset</string>
+    <string name="recommended">Recommended:</string>
 
 </resources>
