@@ -42,7 +42,7 @@ class HomeFragment: Fragment(){
     var sevenDayData = TreeMap<Int,Int>() //Date, Value
 
     companion object{
-        val FILENAME = "VapingData"
+        val FILENAME = "VapeSafe_Settings"
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -51,7 +51,7 @@ class HomeFragment: Fragment(){
         initComponents(view)
         initBluetoothComponents()
 
-
+        loadData()
         listenForSync()
 
 
@@ -75,7 +75,7 @@ class HomeFragment: Fragment(){
             val date = currentDate.get(Calendar.DATE)
             val month = currentDate.get(Calendar.MONTH)
             val year = currentDate.get(Calendar.YEAR) % 100
-            val sendDate = "${year}${month}${date}"
+            //val sendDate = "${year}${month}${date}"
             val byteArray = ByteArray(5)
             byteArray[0] = year.toByte()
             byteArray[1] = 44.toByte()
