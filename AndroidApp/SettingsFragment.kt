@@ -27,7 +27,7 @@ class SettingsFragment: Fragment(){
             val sharedPreferences: SharedPreferences = context?.getSharedPreferences(FILENAME, MODE_PRIVATE)!!
             val editor: SharedPreferences.Editor = sharedPreferences.edit()
 
-            editor.putString("limit", view.LimitPerDay.editableText.toString() + " per day")
+            editor.putString("limit", view.LimitPerDay.editableText.toString())
             editor.apply()
         }
 

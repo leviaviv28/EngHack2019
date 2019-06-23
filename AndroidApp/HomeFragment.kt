@@ -38,7 +38,7 @@ class HomeFragment: Fragment(){
     lateinit var bluetoothAdapter:BluetoothAdapter
     lateinit var hc05: BluetoothDevice
     lateinit var bluetoothSocket: BluetoothSocket
-
+    private var limit = 0
     var sevenDayData = TreeMap<Int,Int>() //Date, Value
 
     companion object{
@@ -75,13 +75,15 @@ class HomeFragment: Fragment(){
             val date = currentDate.get(Calendar.DATE)
             val month = currentDate.get(Calendar.MONTH)
             val year = currentDate.get(Calendar.YEAR) % 100
+            getLimit()
             //val sendDate = "${year}${month}${date}"
-            val byteArray = ByteArray(5)
-            byteArray[0] = year.toByte()
-            byteArray[1] = 44.toByte()
-            byteArray[2] = month.toByte()
-            byteArray[3] = 44.toByte()
-            byteArray[4] = date.toByte()
+//            val byteArray = ByteArray(6)
+//            byteArray[0] = year.toByte()
+//            byteArray[1] = 44.toByte()
+//            byteArray[2] = month.toByte()
+//            byteArray[3] = 44.toByte()
+//            byteArray[4] = date.toByte()
+//            byteArray[]
             //Check if bluetooth communication is set up
 
                 try {
@@ -103,7 +105,7 @@ class HomeFragment: Fragment(){
             try {
                 //Send Request
                 val outputStream = bluetoothSocket.outputStream
-                outputStream.write(byteArray)
+                outputStream.write(limit)
                 Log.d("HomeFragment","REQUESTING SYNC....")
 
                 Thread.sleep(1000)
@@ -202,6 +204,16 @@ class HomeFragment: Fragment(){
         }
 
         loadData()
+    }
+
+    private fun getLimit(){
+        if (doesDataExist("limit")) {
+            val sharedPreferences: SharedPreferences =
+                context?.getSharedPreferences(FILENAME, AppCompatActivity.MODE_PRIVATE)!!
+            val limit_string = sharedPreferences.getString("limit","")
+
+            limit = limit_string?.toInt()!!
+        }
     }
 
     private fun loadData(){
