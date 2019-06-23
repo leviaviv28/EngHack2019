@@ -15,6 +15,7 @@
 
 DoubleClick key(btnPin, PULLUP, REACTION_TIME);
 byte btnPresses = 0;
+String btData = "";
 
 void blinkLed(int duration, int n){
     for(int i = 0; i < n; i++){
@@ -26,30 +27,35 @@ void blinkLed(int duration, int n){
 }
 
 void syncData(){
-    String date = "";
-    date += EEPROM.read(sync_year_addr);
-    date += ",";
-    date += EEPROM.read(sync_month_addr);
-    date += ",";
-    date += EEPROM.read(sync_day_addr);
-    date += "/";
-    for(int i = EEPROM.read(hit_start_addr); i < EEPROM.read(hit_start_addr) + EEPROM.read(day_offset); i++){
-        date += EEPROM.read(hit_start_addr + i);
-        date += ",";
-    }
-    Serial.println(date);
-    btSerial.print(date);
-    date = "";
-    delay(1000);
+    btData = "";
     while(btSerial.available() > 0){
-        date += (char)btSerial.read();
+        btData += btSerial.read();
     }
-    Serial.println(date);
+    Serial.println(btData);
+    btData = "";
+    btData += EEPROM.read(sync_year_addr);
+    btData += ",";
+    btData += EEPROM.read(sync_month_addr);
+    btData += ",";
+    btData += EEPROM.read(sync_day_addr);
+    btData += "/";
+    for(int i = 0; i < 5; i++){
+        btData += EEPROM.read(hit_start_addr + i);
+        btData += ",";
+    }
+    btData.trim();
+    Serial.println();
+    Serial.println(btData);
+    btSerial.print(btData);
+    btData = "";
+    while(btSerial.available() > 0){
+        btData += btSerial.read();
+    }
+    btSerial.end();
 }
 
 void setup(){
     Serial.begin(9600);
-    btSerial.begin(9600);
     key.begin();
     key.setMaxClicks(3);
     pinMode(ledPin, OUTPUT);
@@ -80,13 +86,14 @@ void loop(){
             Serial.println("Hit not allowed");
         }
     } else if(btnPresses == 3){
-         Serial.println("Pairing Mode");
-         blinkLed(3, 500);
-         while(!digitalRead(btStatePin)){
-             Serial.println("Polling");
-         }
-         Serial.println("Paired");
-         Serial.println("Sending");
-         syncData();
+        Serial.println("Pairing Mode");
+        blinkLed(3, 500);
+        btSerial.begin(9600);
+        while(!digitalRead(btStatePin)){
+            blinkLed(100, 1);
+        }
+        Serial.println("Paired");
+        Serial.println("Sending");
+        syncData();
     }
 }
