@@ -1,7 +1,7 @@
-## VapeSafe - EngHack2019
+## VapeSafe - EngHack2019 Overall Prize Winner
 
 This project was completed during EngHack2019 at UWaterloo by Levi Aviv, Jenil Vekaria, and Jarrod Servilla 
-from June 21st 8:00 PM to June 23rd 8:00 AM
+from June 21st 8:00 PM to June 23rd 8:00 AM. 
 
 ## The idea
 
@@ -36,10 +36,11 @@ In addition, we surprisingly were able to finish the day before despite the fact
 
 We learnt how to design and implement efficient data transfer models over Bluetooth and building an app from the ground up.
 
-##What's next
+## What's next
 
 VapeSafe has a lot of potential to be expanded upon, such as improving upon the recommended limit by using usage statistics from users to maximize their chances to quit nicotine. In addition, we could implement an occasional "phantom puff" where we have some hits contain little to no nicotine to wean users off nicotine.
 
 Team Members: Levi Aviv, Jenil Vekaria, Jarrod Servilla
 
-Devpost: https://devpost.com/software/vapesafe/
+## Devpost
+https://devpost.com/software/vapesafe/
